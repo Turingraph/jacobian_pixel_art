@@ -1,0 +1,11 @@
+.b_logo{
+	width:  40px;
+	height: 40px;
+}
+
+.b_logo img{
+	margin:0 auto;
+	display: inline;
+	max-width: 90%;
+	max-height: 90%;
+}

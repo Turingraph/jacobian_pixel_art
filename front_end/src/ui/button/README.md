@@ -1,12 +1,12 @@
 # Types of Button
 
 1.	`b_logo.tsx`
-	1.	`b_paint_no_rgb.tsx`
+	1.	`b_paint_no_rgb/`
 	*	`B_ERASER`
 	*	`B_MOVE`
 	*	`B_RECTANGLE_SELECT`
 	*	`B_RGB_PICKER`
-	2.	`b_paint_rgb.tsx`
+	2.	`b_paint_rgb/`
 	*	`B_PEN`
 	*	`B_MIRROR_PEN`
 	*	`B_BUCKET`
@@ -29,8 +29,9 @@
 	6.	`transform/`
 	*	`B_ROTATE`
 	*	`B_FLIP`
-2.	`B_OPTIONS_INFINITE`
+2.	`B_ARRAY`
 *	`B_LAYERS_ARRAY`
+*	`B_RGB_ARRAY`
 3.	`B_OPTIONS`
 *	`IMAGE_EXPORT_MODE`
 4.	`B_STR`

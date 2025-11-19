@@ -1,4 +1,7 @@
 import React from 'react';
+import MAIN from './panel/main';
+
+/*
 import logo from './logo.svg';
 import './App.css';
 
@@ -21,6 +24,13 @@ function App() {
       </header>
     </div>
   );
+}
+*/
+
+function App() {
+  return <>
+  <MAIN/>
+  </>
 }
 
 export default App;

@@ -1,19 +1,156 @@
-import React from "react";
-import B_LOGO from "../ui/button/b_logo";
-import * as a from "../ui/type/alias"
-import b_eraser from "../ui/logo/b_paint_no_rgb/b_eraser.png"
-import path from 'path';
+import { JSX } from "react";
+import B_LOGO from "../ui/atom/b_logo";
+import DIV from "../ui/atom/div";
+import CANVAS from "../ui/canvas/canvas";
+import MAP from "../ui/canvas/map";
+import * as a from "../ui/type/alias";
 
-export function MAIN()
+import b_eraser from "../ui/logo/b_paint_no_rgb/b_eraser.png";
+import b_move from "../ui/logo/b_paint_no_rgb/b_move.png";
+import b_rectangle_select from "../ui/logo/b_paint_no_rgb/b_rectangle_select.png";
+import b_rgb_picker from "../ui/logo/b_paint_no_rgb/b_rgb_picker.png";
+
+import b_bucker from "../ui/logo/b_paint_rgb/b_bucket.png";
+import b_mirror_pen from "../ui/logo/b_paint_rgb/b_mirror_pen.png";
+import b_pen from "../ui/logo/b_paint_rgb/b_pen.png";
+import b_rectangle from "../ui/logo/b_paint_rgb/b_rectangle.png";
+
+
+import "./main.css";
+
+export default function MAIN()
 {
-	const f_func = () =>{
+	const f_func = () => {
         alert("Nujabes");
     }
-	return <>
+	const f_func_input = (input:string) => {
+        alert(input);
+    }
+	const B_PAINT_ARRAY:JSX.Element[] = [
 	<B_LOGO
+		str_hover={"Pen" as a.t_str_hover}
+		logo={b_pen as a.t_logo}
+		f_onclick={(()=>{f_func_input("Pen")}) as a.t_func}
+	/>,
+	<B_LOGO
+		str_hover={"Eraser" as a.t_str_hover}
+		logo={b_eraser as a.t_logo}
+		f_onclick={f_func as a.t_func}
+	/>,
+	<B_LOGO
+		str_hover={"Mirror Pen" as a.t_str_hover}
+		logo={b_mirror_pen as a.t_logo}
+		f_onclick={f_func as a.t_func}
+	/>,
+	<B_LOGO
+		str_hover={"Bucket" as a.t_str_hover}
+		logo={b_bucker as a.t_logo}
+		f_onclick={f_func as a.t_func}
+	/>,
+	<B_LOGO
+		str_hover={"Rectangle" as a.t_str_hover}
+		logo={b_rectangle as a.t_logo}
+		f_onclick={f_func as a.t_func}
+	/>,
+	<B_LOGO
+		str_hover={"Move" as a.t_str_hover}
+		logo={b_move as a.t_logo}
+		f_onclick={f_func as a.t_func}
+	/>,
+	<B_LOGO
+		str_hover={"Rectangle select" as a.t_str_hover}
+		logo={b_rectangle_select as a.t_logo}
+		f_onclick={f_func as a.t_func}
+	/>,
+	<B_LOGO
+		str_hover={"Color Picker" as a.t_str_hover}
+		logo={b_rgb_picker as a.t_logo}
+		f_onclick={f_func as a.t_func}
+	/>,
+	]
+	const B_TRANSFORM_ARRAY:JSX.Element[] = [
+		<B_LOGO
 		str_hover={"This is math Button." as a.t_str_hover}
 		logo={b_eraser as a.t_logo}
-		func={f_func as a.t_func}
+		f_onclick={f_func as a.t_func}
 	/>
-	</>
+	]
+	const B_FILE_ARRAY:JSX.Element[] = [
+		<B_LOGO
+		str_hover={"This is math Button." as a.t_str_hover}
+		logo={b_eraser as a.t_logo}
+		f_onclick={f_func as a.t_func}
+	/>
+	]
+	return <div id="main">
+	<div className="grid_area_body" style={{gridArea:"area_file", backgroundColor:"lightgreen"}}>
+	{B_FILE_ARRAY}
+	</div>
+	<div id="main_body" className="grid_area_body" style={{gridArea:"area_body"}}>
+	<div className="grid_area_item" style={{gridArea:"area_paint", backgroundColor:"red"}}>
+	<div style={{
+		margin:"0px",
+		height:"100%",
+		minHeight:"100%",
+		display:"flex",
+		flexDirection:"column"
+	}}>
+	<DIV
+		title={"Paint Canvas"}
+		jsx_array={B_PAINT_ARRAY}
+		class_name={"b_paint" as a.t_class_name}
+		display={"grid" as a.t_css}
+		grid_t_col={"40px 40px 40px 40px 40px 40px 40px 40px" as a.t_css}
+		grid_t_row={"40px" as a.t_css}
+		grid_gap={"0px" as a.t_css}
+		margin={"10px" as a.t_css}
+		// flex={"1" as a.t_css}
+	/>
+	<DIV
+		title={"Color Palletes"}
+		jsx_array={[
+			<div
+			id = "id_color_palletes"
+			style={{
+				minWidth:"320px",
+				minHeight:"100%",
+				height:"100%",
+				// objectFit:"cover",
+				flex:1,
+				backgroundColor:"blue"
+			}}
+			></div>
+		]}
+		grid_t_row={"" as a.t_css}
+		height={"100%" as a.t_css}
+		min_height={"100%" as a.t_css}
+		// display={"table-row" as a.t_css}
+		margin={"10px" as a.t_css}
+		// flex_direction="column"
+		background_color={"black" as a.t_css}
+		flex={"1" as a.t_css}
+	/>
+	</div>
+	</div>
+	<div className="grid_area_item" style={{gridArea:"area_canvas", backgroundColor:"purple"}}>
+	<CANVAS/>
+	</div>
+	
+	<div className="grid_area_item" style={{gridArea:"area_right", backgroundColor:"gray"}}>
+	<MAP 
+		canvas={"cartesian plane"} 
+		position_2d={[0, 1]} 
+		zoom_level={1}
+	/>
+	<DIV
+		title={"Transform"}
+		jsx_array={B_TRANSFORM_ARRAY}
+	/>
+	<DIV
+		title={"Layer"}
+		jsx_array={B_TRANSFORM_ARRAY}
+	/>
+	</div>
+</div>
+</div>
 }

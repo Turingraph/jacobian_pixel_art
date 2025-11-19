@@ -1,4 +1,3 @@
-import React from "react";
 
 export default function CANVAS()
 {
@@ -6,7 +5,7 @@ export default function CANVAS()
 	style={{
 		width:"600px",
 		height:"600px",
-		backgroundColor:"blue",
+		backgroundColor:"green",
 	}}
 	></div>
 }
