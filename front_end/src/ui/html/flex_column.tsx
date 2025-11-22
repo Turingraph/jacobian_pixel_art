@@ -2,7 +2,7 @@ import { CSSProperties, JSX } from "react";
 
 import { CSS_FLEX_COLUMN, CSS_FLEX_COLUMN_CONTAINER, CSS_FLEX_COLUMN_LAST } from "./flex_column_css";
 
-export function FLEX_COLUMN({
+export default function FLEX_COLUMN({
 	id = "",
 	class_name = "" as string,
 	is_fill_app = false as boolean,
