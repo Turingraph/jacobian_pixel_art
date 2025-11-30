@@ -1,8 +1,16 @@
 import React from "react";
+import STR from "../str/str";
+import * as a from "../type/alias";
 
-export function B_LOGO()
+export function B_STR({
+	title,
+	func
+}:{
+	title:string,
+	func:a.t_func
+})
 {
-	return <></>
+	return <button onClick={func}><STR text={title}/></button>
 }
 
 /*

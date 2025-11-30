@@ -6,14 +6,14 @@ import "./b_logo.css";
 export type t_B_LOGO = {
 	str_hover:a.t_str_hover,
 	logo:a.t_logo,
-	f_onclick:a.t_func
+	func:a.t_func
 }
 
 export default function B_LOGO(
 {
 	str_hover,
 	logo,
-	f_onclick: func
+	func
 }:t_B_LOGO
 )
 {

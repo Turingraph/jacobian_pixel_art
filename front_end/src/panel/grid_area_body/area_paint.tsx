@@ -17,7 +17,7 @@ export default function AREA_PAINT()
 					return <B_LOGO
 					str_hover={item.str_hover}
 					logo={item.logo}
-					f_onclick={item.f_onclick}
+					func={item.func}
 					/>
 					})}</>}
 			/>
@@ -31,7 +31,7 @@ export default function AREA_PAINT()
 					return <B_LOGO
 					str_hover={item.str_hover}
 					logo={item.logo}
-					f_onclick={item.f_onclick}
+					func={item.func}
 					/>
 					})}</>}
 			/>

@@ -16,7 +16,7 @@ export function AREA_FILE()
 	<B_LOGO
 		str_hover={"This is math Button." as a.t_str_hover}
 		logo={b_eraser as a.t_logo}
-		f_onclick={f_func as a.t_func}
+		func={f_func as a.t_func}
 	/>
 	</div>
 }

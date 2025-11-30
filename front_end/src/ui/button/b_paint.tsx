@@ -6,7 +6,7 @@ export function B_PAINT(
 {
 	str_hover,
 	logo,
-	f_onclick,
+	func,
 	rgb,
 	select,
 	key
@@ -20,7 +20,7 @@ export function B_PAINT(
 	const f_select_onclick = () => {
 		if (select !== undefined)
 			select.setss(key);
-		f_onclick();
+		func();
 	}
 	let this_rgb:number[]|undefined = undefined;
 	if (select !== undefined && select.ss === key)
@@ -29,7 +29,7 @@ export function B_PAINT(
 	<B_LOGO
 		str_hover={str_hover}
 		logo={logo}
-		f_onclick={f_select_onclick as a.t_func}
+		func={f_select_onclick as a.t_func}
 	/>
 	</div>
 }

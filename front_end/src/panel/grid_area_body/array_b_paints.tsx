@@ -22,41 +22,41 @@ export const ARRAY_B_PAINTS:t_B_LOGO[] = [
 	{
 		str_hover:"Pen" as a.t_str_hover,
 		logo:b_pen as a.t_logo,
-		f_onclick:(()=>{f_func_input("Pen")}) as a.t_func
+		func:(()=>{f_func_input("Pen")}) as a.t_func
 	},
 	{
 		str_hover:"Eraser" as a.t_str_hover,
 		logo:b_eraser as a.t_logo,
-		f_onclick:(()=>{f_func()}) as a.t_func
+		func:(()=>{f_func()}) as a.t_func
 	},
 	{
 		str_hover:"Mittot Pen" as a.t_str_hover,
 		logo:b_mirror_pen as a.t_logo,
-		f_onclick:(()=>{f_func()}) as a.t_func
+		func:(()=>{f_func()}) as a.t_func
 	},
 	{
 		str_hover:"Bucket" as a.t_str_hover,
 		logo:b_bucket as a.t_logo,
-		f_onclick:(()=>{f_func()}) as a.t_func
+		func:(()=>{f_func()}) as a.t_func
 	},
 	{
 		str_hover:"Rectangle" as a.t_str_hover,
 		logo:b_rectangle as a.t_logo,
-		f_onclick:(()=>{f_func()}) as a.t_func
+		func:(()=>{f_func()}) as a.t_func
 	},
 	{
 		str_hover:"Move" as a.t_str_hover,
 		logo:b_move as a.t_logo,
-		f_onclick:(()=>{f_func()}) as a.t_func
+		func:(()=>{f_func()}) as a.t_func
 	},
 	{
 		str_hover:"Rectangle select" as a.t_str_hover,
 		logo:b_rectangle_select as a.t_logo,
-		f_onclick:(()=>{f_func()}) as a.t_func
+		func:(()=>{f_func()}) as a.t_func
 	},
 	{
 		str_hover:"Color Picker" as a.t_str_hover,
 		logo:b_rgb_picker as a.t_logo,
-		f_onclick:(()=>{f_func()}) as a.t_func
+		func:(()=>{f_func()}) as a.t_func
 	}
 ]

@@ -31,56 +31,56 @@ export default function MAIN()
 	<B_LOGO
 		str_hover={"Pen" as a.t_str_hover}
 		logo={b_pen as a.t_logo}
-		f_onclick={(()=>{f_func_input("Pen")}) as a.t_func}
+		func={(()=>{f_func_input("Pen")}) as a.t_func}
 	/>,
 	<B_LOGO
 		str_hover={"Eraser" as a.t_str_hover}
 		logo={b_eraser as a.t_logo}
-		f_onclick={f_func as a.t_func}
+		func={f_func as a.t_func}
 	/>,
 	<B_LOGO
 		str_hover={"Mirror Pen" as a.t_str_hover}
 		logo={b_mirror_pen as a.t_logo}
-		f_onclick={f_func as a.t_func}
+		func={f_func as a.t_func}
 	/>,
 	<B_LOGO
 		str_hover={"Bucket" as a.t_str_hover}
 		logo={b_bucker as a.t_logo}
-		f_onclick={f_func as a.t_func}
+		func={f_func as a.t_func}
 	/>,
 	<B_LOGO
 		str_hover={"Rectangle" as a.t_str_hover}
 		logo={b_rectangle as a.t_logo}
-		f_onclick={f_func as a.t_func}
+		func={f_func as a.t_func}
 	/>,
 	<B_LOGO
 		str_hover={"Move" as a.t_str_hover}
 		logo={b_move as a.t_logo}
-		f_onclick={f_func as a.t_func}
+		func={f_func as a.t_func}
 	/>,
 	<B_LOGO
 		str_hover={"Rectangle select" as a.t_str_hover}
 		logo={b_rectangle_select as a.t_logo}
-		f_onclick={f_func as a.t_func}
+		func={f_func as a.t_func}
 	/>,
 	<B_LOGO
 		str_hover={"Color Picker" as a.t_str_hover}
 		logo={b_rgb_picker as a.t_logo}
-		f_onclick={f_func as a.t_func}
+		func={f_func as a.t_func}
 	/>,
 	]
 	const B_TRANSFORM_ARRAY:JSX.Element[] = [
 		<B_LOGO
 		str_hover={"This is math Button." as a.t_str_hover}
 		logo={b_eraser as a.t_logo}
-		f_onclick={f_func as a.t_func}
+		func={f_func as a.t_func}
 	/>
 	]
 	const B_FILE_ARRAY:JSX.Element[] = [
 		<B_LOGO
 		str_hover={"This is math Button." as a.t_str_hover}
 		logo={b_eraser as a.t_logo}
-		f_onclick={f_func as a.t_func}
+		func={f_func as a.t_func}
 	/>
 	]
 	return <div id="main">
@@ -159,12 +159,11 @@ export default function MAIN()
 */
 
 import { JSX } from "react";
-import B_LOGO from "../atom/button/b_logo";
+import { B_STR } from "../atom/button/b_str";
 import { CSS_DIV } from "../atom/html/div_css";
 import FLEX_COLUMN from "../atom/html/flex_column";
 import GRID_TEMPLATE_COLUMNS from "../atom/html/grid_template_columns";
 import * as a from "../atom/type/alias";
-import b_eraser from "../asset/b_paint_no_rgb/b_eraser.png";
 import CANVAS from "../ui/canvas/canvas";
 import AREA_PAINT from "./grid_area_body/area_paint";
 
@@ -174,10 +173,13 @@ export default function MAIN()
 		alert("Fermat Kitchen")
 	}
 	const B_FILE_ARRAY:JSX.Element[] = [
-		<B_LOGO
-			str_hover={"This is math Button." as a.t_str_hover}
-			logo={b_eraser as a.t_logo}
-			f_onclick={f_func as a.t_func}/>,
+		<div>
+			<div style={{display:"inline-block"}}><B_STR title={"save as"} func={f_func as a.t_func}/></div>
+			<div style={{display:"inline-block"}}><B_STR title={"import image"} func={f_func as a.t_func}/></div>
+			<div style={{display:"inline-block"}}><B_STR title={"export project"} func={f_func as a.t_func}/></div>
+			<div style={{display:"inline-block"}}><B_STR title={"create new project"} func={f_func as a.t_func}/></div>
+		</div>
+		,
 		<GRID_TEMPLATE_COLUMNS
 			grid_template_areas={"area_paint area_canvas area_transform area_empty" as a.t_css}
 			grid_template_columns={"340px 1000px 340px 1fr" as a.t_css}
