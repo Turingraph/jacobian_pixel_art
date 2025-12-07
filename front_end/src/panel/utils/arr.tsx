@@ -11,6 +11,8 @@ import b_pen from "../../asset/b_paint_rgb/b_pen.png";
 import b_rectangle from "../../asset/b_paint_rgb/b_rectangle.png";
 import { t_B_LOGO } from "../../atom/button/b_logo";
 import { t_B_STR } from "../../atom/button/b_str";
+import { CSS_TEST_DIV } from "../../atom/html/div_css";
+import { ui_with_title } from "../../ui/html/multi_modes_page";
 // import { t_div_with_title } from "../../ui/html/multi_modes_div";
 
 const f_func = () => {
@@ -21,7 +23,7 @@ const f_func_input = (input:string) => {
     alert(input);
 }
 
-export const ARRAY_B_PAINTS:t_B_LOGO[] = [
+export const ARR_B_PAINTS:t_B_LOGO[] = [
 	{
 		title:"Pen" as a.t_str_hover,
 		logo:b_pen as a.t_logo,
@@ -64,7 +66,7 @@ export const ARRAY_B_PAINTS:t_B_LOGO[] = [
 	}
 ]
 
-export const ARRAY_B_SAVE:t_B_STR[] = [
+export const ARR_B_SAVE:t_B_STR[] = [
 	{
 		title:"save as",
 		func:(()=>{f_func()}) as a.t_func
@@ -81,4 +83,26 @@ export const ARRAY_B_SAVE:t_B_STR[] = [
 		title:"create new project",
 		func:(()=>{f_func()}) as a.t_func
 	},
+]
+
+export const ARR_EDITOR_MODES:ui_with_title[] = [
+	{
+		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"red"}}}>Main</div>,
+		title:"Main"
+	},	{
+		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"BlueViolet"}}}>Plane Color</div>,
+		title:"Plane Color"
+	},	{
+		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"lightgreen"}}}>Curve Color</div>,
+		title:"Curve Color"
+	},	{
+		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"Gray"}}}>J_f Canvas</div>,
+		title:"J_f Canvas"
+	},	{
+		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"Orange"}}}>FEM Color</div>,
+		title:"FEM Color"
+	},	{
+		ui:<div style={{...CSS_TEST_DIV, ...{backgroundColor:"skyblue"}}}>Wave Function</div>,
+		title:"Wave Function"
+	}
 ]

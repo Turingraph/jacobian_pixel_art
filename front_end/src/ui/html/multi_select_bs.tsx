@@ -1,6 +1,7 @@
-import { JSX, useState, useContext } from "react";
-import { CSS_CONTEXT } from "../../atom/hook/useContext";
+import { JSX, useContext } from "react";
+import { CSS_CONTEXT, JSX_CONTEXT } from "../../atom/hook/useContext";
 import "./multi_color_b.css";
+import * as a from "../../atom/type/alias";
 
 // https://stackoverflow.com/questions/54706748/
 // change-color-of-a-element-inside-a-div-using-inline-css
@@ -12,24 +13,35 @@ inherited from it's parent
 */
 
 export default function MULTI_SELECT_BS({
-	jsx_array
+	jsx_array,
+	state_input
 }:{
-	jsx_array:JSX.Element[]
+	jsx_array:JSX.Element[],
+	state_input:a.t_use_state<number>
 })
 {
 	const CX_CSS = useContext(CSS_CONTEXT);
-	const [SS_Div, setSS_Div] = useState<number>(0);
-	return <div style={CX_CSS[0]}>
+	const CX_JSX = useContext(JSX_CONTEXT);
+	return <div style={{
+		...CX_CSS[0],
+		...{
+			display:"flex", 
+			justifyContent:"space-evenly",
+			marginTop:"5px",
+			marginBottom:"5px",
+			}
+		}}>
 		{jsx_array.map((item, index:number)=>{
 			return <span
-			className={index ===  SS_Div ? "select_button" : ""}
+			className={index ===  state_input.ss ? "select_button" : ""}
 			style={{
-				backgroundColor:SS_Div === index ? "BlueViolet" : "gray"
-			}} 
-			onClick={()=>{setSS_Div(index)}}>
+				backgroundColor:state_input.ss === index ? "BlueViolet" : "gray",
+			}}
+			onClick={()=>{state_input.setss(index)}}>
 				{item}
 			</span>
 		})}
+		{CX_JSX.map((item, index:number)=>{return <span>{item}</span>})}
 	</div>
 }
 

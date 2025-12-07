@@ -38,4 +38,8 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
+## my customized gitignore
+# future files
 draft_*
+# outdated files
+trash_*

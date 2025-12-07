@@ -1,49 +1,53 @@
 import { JSX, useState } from "react";
 import B_STR from "../atom/button/b_str";
 import { CSS_FULL_DIV } from "../atom/html/div_css";
-import FLEX_COLUMN from "../atom/html/flex_column";
+import { CSS_CONTEXT } from "../atom/hook/useContext";
 import GRID_TEMPLATE_COLUMNS from "../atom/html/grid_template_columns";
+import GRID_TEMPLATE_ROWS from "../atom/html/grid_template_rows";
 import * as a from "../atom/type/alias";
 import CANVAS from "../ui/canvas/canvas";
-import MULTI_SELECT_BS from "../ui/html/multi_select_bs";
-import AREA_PAINT from "./grid_area_body/area_paint";
-import { ARRAY_B_SAVE } from "./utils/array";
+import { MULTI_MODES_PAGE } from "../ui/html/multi_modes_page";
+import { ARR_B_SAVE, ARR_EDITOR_MODES } from "./utils/arr";
 
 export default function MAIN()
 {
-	const [SS_PixelSize, setSS_PixelSize] = useState<number>(1);
-	const B_FILE_ARRAY:JSX.Element[] = [
-		<>
-		<MULTI_SELECT_BS jsx_array={ARRAY_B_SAVE.map((item, index:number)=>{
+	// const [SS_PixelSize, setSS_PixelSize] = useState<number>(1);
+	const [SS_LeftPanelMode, setSS_LeftPanelMode] = useState<number>(1);
+	const JSX_BODY:JSX.Element[] = [
+		<div style={{gridArea:"area_head", backgroundColor:"gray"}}>
+		{ARR_B_SAVE.map((item, index:number)=>{
 			return <B_STR
 				title={item.title}
 				func={item.func}
 			/>
-		})}/>
-		</>
+		})}
+		</div>
 		,
-		// <INLINE_BUTTONS jsx_array={ARRAY_B_SAVE}/>,
+		<div style={{gridArea:"area_body", height:"100%"}}>
+		<CSS_CONTEXT value={[{backgroundColor:"red"}]}>
 		<GRID_TEMPLATE_COLUMNS
-			grid_template_areas={"area_paint area_canvas area_transform area_empty" as a.t_css}
+			grid_template_areas={"area_paint area_canvas" as a.t_css}
 			grid_template_columns={"600px 1fr" as a.t_css}
 			jsx_array={[
-				<div style={{...CSS_FULL_DIV,...{gridArea:"area_paint", backgroundColor:"red", display:"inline-block"}}}>
-					{/* <MULTI_MODES_DIV jsx_array={ARRAY_EDITOR_MODE}/> */}
-					<AREA_PAINT 
+				<div style={{...CSS_FULL_DIV,...{gridArea:"area_paint", backgroundColor:"orange", display:"inline-block"}}}>
+					{/* <AREA_PAINT 
 					pixel_size={{
 						ss:SS_PixelSize,
 						setss:setSS_PixelSize
-					}}
-					/>
+					}}/> */}
+					<MULTI_MODES_PAGE
+						ui_body={ARR_EDITOR_MODES}
+						ui_state={{
+							ss:SS_LeftPanelMode,
+							setss:setSS_LeftPanelMode,
+						}}/>
 				</div>,
 				<div 
 					style={{
 						...CSS_FULL_DIV,
 						...{
 							gridArea:"area_canvas", 
-							backgroundColor:"green", 
-							// display:"inline-block",
-							// alignContent:"center",
+							backgroundColor:"blue", 
 							display:"flex",
 							justifyContent:"center",
 							alignItems:"center"
@@ -52,10 +56,14 @@ export default function MAIN()
 				</div>
 			]}
 		/>
+		</CSS_CONTEXT>
+		</div>
 	]
-	return <FLEX_COLUMN
+	return <GRID_TEMPLATE_ROWS
 	is_fill_app={true}
-	jsx_array={B_FILE_ARRAY}/>
+	grid_template_rows={"45px 1fr" as a.t_css}
+	grid_template_areas={"area_head area_body" as a.t_css}
+	jsx_array={JSX_BODY}/>
 }
 
 /*
@@ -80,12 +88,8 @@ https://youtu.be/6aHKdahOfCc?si=DNwU2tnOf4NtrBW7
 */
 
 /*
-editor mode
-1.	Default
-2.	line
-3.	plane
-4.	transform
-
-to do now
-2.	add ???px pen size (pleace show title and unit of STR_INPUT)
+To Do Now
+1.	MULTI_MODES_PAGE buttons in horiszontal scroll bar
+2.	useState<JSX.Element> for MULTI_MODES_PAGE
+3.	add <AREA_PAINT/> in main of MULTI_MODES_PAGE
 */

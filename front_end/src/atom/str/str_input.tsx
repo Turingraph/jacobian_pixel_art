@@ -18,7 +18,7 @@ export function STR_INPUT({
 	let jsx_unit = <></>
 	if (unit !== undefined)
 		jsx_unit = <STR text={unit}/>
-	return <div style={{display:"flex", flexDirection:"row"}}>
+	return <div style={{display:"flex", flexDirection:"row", backgroundColor:"gray"}}>
 	{jsx_title}
 	<input 
 	style={{
